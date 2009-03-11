@@ -21,13 +21,8 @@ int selection(int a[], int n, int m){
     if (n == 1) return a[0];
     int k;
     
-//    printf("In selection for array a size n=%d:\n",n);
-//    printArray(a,n);
     // Partition the array, putting element 'k' in its final resting place
     k = partition(a,n);
-    
-//    printf("Just partitioned the array(k=%d): ",k);
-//    printArray(a,n);
     
     // Check to see if k is the element we are trying to sort (element 'm')
     if (k == m) return a[k];
@@ -65,15 +60,9 @@ int partition(int a[], int n){
     // Everything in the bottom half is less than the partition element
     // Everything in the top half is greater than the partition element
     while (low < high){
-        /*
-        printf("*** In Loop ****\n");
-        printArray(a,n);
-        printf("low=%d, high=%d\n", *low,*high);
-        */
         while (*low < *partition && low < a+n-1) low++;
         while (*high > *partition && high > a+1) high--;
         if (low < high) exchange(low,high);
-        //printArray(a,n);
     }
     
     // Put the partition element in its final location, and return

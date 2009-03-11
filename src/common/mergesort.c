@@ -2,27 +2,6 @@
 
 void merge(int a[], int a1[], int n1, int a2[], int n2);
 
-/*
-static void printArray(int a[], int n){
-    int i = 0;
-    printf("{");
-    for (i=0; i < n ; i ++ ) {
-        printf("%d",a[i]);
-        if (i < n-1) printf(", ");
-    }
-    printf("}\n");
-}
-*/
-
-/*
- * Mergesort
- * Mergesort takes an array of size n and sorts it in ascending order
- * 
- * params:
- * int a[]      Array to be sorted
- * int n        Array size
- */
-
 void d_mergesort(int a[], int n) {
     int *a1,*a2;
     int n1,n2;
@@ -30,20 +9,11 @@ void d_mergesort(int a[], int n) {
     // Divide the array in half, and mergesort both halves
     a1 = a;
     n1 = n/2;
-//    printf("Sorting: ");
-//    printArray(a,n);
-    
     d_mergesort(a1,n1);
     
     a2 = a + n/2;
     n2 = n/2 + n%2;
     d_mergesort(a2,n2);
-    
-//    printf("Merging a1: ");
-//    printArray(a1,n1);
-    
-//    printf("Merging a2: ");
-//    printArray(a2,n1);
     
     merge(a,a1,n1,a2,n2);
 }
@@ -66,7 +36,6 @@ void merge(int a[], int a1[], int n1, int a2[], int n2) {
             k++;
         }
     }
-    
     
     for(i = 0 ; i < n; i++)
         a[i] = tmp[i];
